@@ -1,4 +1,5 @@
 var React = require('react');
+var css = require("../styles/app.css");
 
 var Home = React.createClass({
   showLock: function() {
