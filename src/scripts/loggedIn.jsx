@@ -41,7 +41,7 @@ var LoggedIn = React.createClass({
           <img src={this.state.profile.picture} height="200" width="200"/>
           <h2>Welcome {this.state.profile.name}</h2>
           <button onClick={this.callApi} className="btn btn-lg btn-primary">Call API</button>
-          <br />
+            &nbsp;
           <button onClick={this.logout} className="btn btn-lg btn-primary">Log Out</button>
         </div>);
     } else {
