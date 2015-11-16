@@ -38,7 +38,7 @@ var LoggedIn = React.createClass({
       return (
         <div className="logged-in-box auth0-box logged-in">
           <h1 id="logo"><img src="http://betatest.dictybase.org/scripts/dictyHF/dictyLogo.png" /></h1>
-          <img src={this.state.profile.picture} />
+          <img src={this.state.profile.picture} height="200" width="200"/>
           <h2>Welcome {this.state.profile.name}</h2>
           <button onClick={this.callApi} className="btn btn-lg btn-primary">Call API</button>
           <br />
