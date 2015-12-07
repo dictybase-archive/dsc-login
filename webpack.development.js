@@ -5,7 +5,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/dev-server',
-    path.join(__dirname, 'src/scripts/boot.jsx')
+    path.join(__dirname, 'src/scripts/app.jsx')
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -21,15 +21,11 @@ module.exports = {
         // test for both js and jsx
         test: /\.jsx?$/,
 
-        // use babel loader
-        loader: 'babel-loader',
+        // use babel loader with Stage 0 features
+        loader: 'babel?stage=0',
 
-        // operate only in the app directory
-        include: path.join(__dirname, 'src'),
-
-        query: {
-          presets: ['es2015', 'react']
-        }
+        // operate only on our app directory
+        include: path.join(__dirname, 'src')
       },
       {
         test: /node_modules\/auth0-lock\/.*\.js$/,
@@ -43,11 +39,6 @@ module.exports = {
       }, {
         test: /\.json$/,
         loader: 'json-loader'
-      },
-      {
-        test: /\.css$/,
-        include: path.join(__dirname, './src/styles/'),
-        loader: 'style!css'
       }
     ]
   }
