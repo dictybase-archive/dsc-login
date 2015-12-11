@@ -3,11 +3,9 @@ import {Router, Route, Link, IndexRoute, Redirect} from 'react-router';
 import Auth0Lock from 'auth0-lock';
 import Home from './Home';
 import Login from './Login';
-import { createHistory, useBasename } from 'history'
+import createHistory from 'history/lib/createBrowserHistory'
 
-const history = useBasename(createHistory)({
-  basename: '/'
-})
+const history = createHistory();
 
 export default class App extends React.Component {
 
