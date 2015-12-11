@@ -32,7 +32,7 @@
     "auth0-lock": "^7.12.3",
     "brfs": "^1.4.1",
     "ejsify": "^1.0.0",
-    "history": "^1.13.1",
+    "history": "~1.13.1",
     "json-loader": "^0.5.4",
     "packageify": "^0.2.3",
     "path-is-absolute": "^1.0.0",
