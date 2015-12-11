@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
@@ -41,6 +42,9 @@ module.exports = {
         loader: 'json-loader'
       }
     ]
-  }
-
+  },
+  plugins: [
+     new webpack.HotModuleReplacementPlugin(),
+     new webpack.NoErrorsPlugin()
+  ]
 };
