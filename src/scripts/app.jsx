@@ -1,11 +1,6 @@
 import React from 'react';
-import {Router, Route, Link, IndexRoute, Redirect} from 'react-router';
+import {Link} from 'react-router';
 import Auth0Lock from 'auth0-lock';
-import Home from './Home';
-import Login from './Login';
-import createHistory from 'history/lib/createBrowserHistory'
-
-const history = createHistory();
 
 export default class App extends React.Component {
 
@@ -56,14 +51,3 @@ export default class App extends React.Component {
       );
     }
 }
-
-React.render((
-  <Router history={history}>
-    <Route path="/" component={App}>
-      <Route path="login" component={Login} />
-      <Route path="loggedIn" component={Home} />
-      <Route path="loggedout" component={Home} />
-      <IndexRoute component={Home}/>
-    </Route>
-  </Router>
-), document.getElementById('dsc'));
