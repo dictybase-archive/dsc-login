@@ -13,17 +13,6 @@ export default class App extends React.Component {
       this.lock = new Auth0Lock('xCuhPtLp8BEAqB5DCxOviHYPcbpklA8k', 'haridu.auth0.com');
       this.setState({idToken: this.getIdToken()})
     }
-    renderChildren = () => {
-      const newChildren = React.Children.map(this.props.children, (child) => {
-        return React.cloneElement(child,
-            {
-                lock: this.lock,
-                idToken: this.state.idToken
-            });
-      });
-      console.log("worksss");
-      return newChildren;
-    }
     getIdToken = () => {
       var idToken = localStorage.getItem('userToken');
       var authHash = this.lock.parseHash(window.location.hash);
@@ -62,7 +51,7 @@ export default class App extends React.Component {
                 </div>
               </div>
             </nav>
-            {this.renderChildren()}
+            {this.props.children}
           </div>
       );
     }
