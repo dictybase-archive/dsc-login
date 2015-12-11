@@ -12,7 +12,6 @@ const history = useBasename(createHistory)({
 export default class App extends React.Component {
 
     componentWillMount() {
-      this.setupAjax();
       this.lock = new Auth0Lock('xCuhPtLp8BEAqB5DCxOviHYPcbpklA8k', 'haridu.auth0.com');
       this.setState({idToken: this.getIdToken()})
     }
@@ -26,16 +25,6 @@ export default class App extends React.Component {
       });
       console.log("worksss");
       return newChildren;
-    }
-    setupAjax = () => {
-      $.ajaxSetup({
-        'beforeSend': function(xhr) {
-          if (localStorage.getItem('userToken')) {
-            xhr.setRequestHeader('Authorization',
-                  'Bearer ' + localStorage.getItem('userToken'));
-          }
-        }
-      });
     }
     getIdToken = () => {
       var idToken = localStorage.getItem('userToken');
