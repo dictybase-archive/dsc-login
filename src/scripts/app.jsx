@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import Navbar from './Navbar'
 import Auth0Lock from 'auth0-lock';
 
 export default class App extends React.Component {
@@ -30,8 +31,7 @@ export default class App extends React.Component {
     render() {
       return (
           <div>
-            <nav className="navbar navbar-default navbar-fixed-top" style={{backgroundColor: '#FFFFFF'}}>
-              <div className="container-fluid">
+            <Navbar style={{backgroundColor: '#FFFFFF'}}>
                 <div className="navbar-header">
                   <Link className="navbar-brand" to="/" style={{backgroundColor: '#ffe939', color: '#000000'}}>DSC</Link>
                 </div>
@@ -44,8 +44,7 @@ export default class App extends React.Component {
                     )}
                   </ul>
                 </div>
-              </div>
-            </nav>
+            </Navbar>
             {this.props.children}
           </div>
       );
