@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
-import Navbar from './Navbar'
+import Navbar from './Navbar';
+import NavbarHeader from './NavbarHeader';
 import Auth0Lock from 'auth0-lock';
 
 export default class App extends React.Component {
@@ -32,9 +33,9 @@ export default class App extends React.Component {
       return (
           <div>
             <Navbar style={{backgroundColor: '#FFFFFF'}}>
-                <div className="navbar-header">
+                <NavbarHeader>
                   <Link className="navbar-brand" to="/" style={{backgroundColor: '#ffe939', color: '#000000'}}>DSC</Link>
-                </div>
+                </NavbarHeader>
                 <div>
                   <ul className="nav navbar-nav navbar-right">
                     {this.state.idToken ? (
