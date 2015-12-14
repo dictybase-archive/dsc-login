@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import Navbar from './Navbar';
 import NavbarHeader from './NavbarHeader';
 import NavbarItems from './NavbarItems';
+import Status from './Status';
 import Auth0Lock from 'auth0-lock';
 
 export default class App extends React.Component {
@@ -25,10 +26,6 @@ export default class App extends React.Component {
       }
       return idToken;
     }
-    logout = () => {
-      localStorage.removeItem('userToken');
-      this.setState({idToken: false})
-    }
 
     render() {
       return (
@@ -38,11 +35,7 @@ export default class App extends React.Component {
                   <Link className="navbar-brand" to="/" style={{backgroundColor: '#ffe939', color: '#000000'}}>DSC</Link>
                 </NavbarHeader>
                 <NavbarItems>
-                    {this.state.idToken ? (
-                      <li><Link to="loggedout" onClick={this.logout}>Logout</Link></li>
-                    ) : (
-                      <li><Link to="login">Login</Link></li>
-                    )}
+                  <Status />
                 </NavbarItems>
             </Navbar>
             {this.props.children}
