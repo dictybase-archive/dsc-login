@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import Navbar from './Navbar';
 import NavbarHeader from './NavbarHeader';
+import NavbarItems from './NavbarItems';
 import Auth0Lock from 'auth0-lock';
 
 export default class App extends React.Component {
@@ -36,15 +37,13 @@ export default class App extends React.Component {
                 <NavbarHeader>
                   <Link className="navbar-brand" to="/" style={{backgroundColor: '#ffe939', color: '#000000'}}>DSC</Link>
                 </NavbarHeader>
-                <div>
-                  <ul className="nav navbar-nav navbar-right">
+                <NavbarItems>
                     {this.state.idToken ? (
                       <li><Link to="loggedout" onClick={this.logout}>Logout</Link></li>
                     ) : (
                       <li><Link to="login">Login</Link></li>
                     )}
-                  </ul>
-                </div>
+                </NavbarItems>
             </Navbar>
             {this.props.children}
           </div>
