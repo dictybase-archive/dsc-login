@@ -8,7 +8,9 @@ export default class Login extends React.Component {
     }
     componentDidMount() {
       this.lock.show({
-          container: 'loginBox'
+          container: 'loginBox',
+          callbackURL: 'http://127.0.0.1:8080/callback', 
+          responseType: 'token'
         });
     }
     render() {

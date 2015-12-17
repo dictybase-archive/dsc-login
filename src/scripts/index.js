@@ -4,6 +4,7 @@ import createHistory from 'history/lib/createBrowserHistory';
 import Home from './Home';
 import Login from './Login';
 import App from './app';
+import Callback from './callback';
 
 const history = createHistory();
 
@@ -13,6 +14,7 @@ React.render((
       <Route path="login" component={Login} />
       <Route path="loggedIn" component={Home} />
       <Route path="loggedout" component={Home} />
+      <Route path="callback" component={Callback} />
       <IndexRoute component={Home}/>
     </Route>
   </Router>
