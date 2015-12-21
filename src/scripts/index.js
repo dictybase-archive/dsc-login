@@ -14,7 +14,7 @@ React.render((
       <Route path="login" component={Login} />
       <Route path="loggedIn" component={Home} />
       <Route path="loggedout" component={Home} />
-      <Route path="callback" component={Callback} />
+      <Route path="callback" component={Callback} history={history} />
       <IndexRoute component={Home}/>
     </Route>
   </Router>
