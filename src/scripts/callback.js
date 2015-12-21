@@ -3,9 +3,10 @@ import Auth0Lock from 'auth0-lock';
 
 export default class Callback extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
       this.lock = new Auth0Lock('xCuhPtLp8BEAqB5DCxOviHYPcbpklA8k', 'haridu.auth0.com');
       this.setAuth();
+      this.props.history.pushState(null, `/loggedIn`);
     }
     setAuth = () => {
       var authHash = this.lock.parseHash(window.location.hash);
