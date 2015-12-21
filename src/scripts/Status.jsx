@@ -9,14 +9,14 @@ export default class Status extends React.Component {
     }
 
     loggedIn = () => {
-      if (localStorage.getItem('userToken')) {
+      if (localStorage.getItem('auth')) {
         return true;
       }
       return false;
     }
 
     logout = () => {
-      localStorage.removeItem('userToken');
+      localStorage.removeItem('auth');
       this.setState({loggedIn: false})
     }
 
