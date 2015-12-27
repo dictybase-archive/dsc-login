@@ -8,25 +8,6 @@ import Auth0Lock from 'auth0-lock';
 
 export default class App extends React.Component {
 
-    componentWillMount() {
-      this.lock = new Auth0Lock('xCuhPtLp8BEAqB5DCxOviHYPcbpklA8k', 'haridu.auth0.com');
-      this.setState({idToken: this.getIdToken()})
-    }
-    getIdToken = () => {
-      var idToken = localStorage.getItem('userToken');
-      var authHash = this.lock.parseHash(window.location.hash);
-      if (!idToken && authHash) {
-        if (authHash.id_token) {
-          idToken = authHash.id_token
-          localStorage.setItem('userToken', authHash.id_token);
-        }
-        if (authHash.error) {
-          console.log("Error signing in", authHash);
-        }
-      }
-      return idToken;
-    }
-
     render() {
       return (
           <div>
