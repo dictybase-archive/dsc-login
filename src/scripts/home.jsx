@@ -32,6 +32,11 @@ export class PanelHeader extends React.Component {
         
       } 
     }
+    componentWillReceiveProps() {
+      if (!localStorage.getItem('auth')) {
+        this.setState({profile: null});
+      }
+    }
 
     render() {
       if (this.state.profile){

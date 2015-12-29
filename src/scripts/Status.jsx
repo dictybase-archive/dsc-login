@@ -7,6 +7,9 @@ export default class Status extends React.Component {
     componentWillMount() {
       this.setState({loggedIn: this.loggedIn()})
     }
+    componentWillReceiveProps() {
+      this.setState({loggedIn: this.loggedIn()})
+    }
 
     loggedIn = () => {
       if (localStorage.getItem('auth')) {
@@ -17,7 +20,6 @@ export default class Status extends React.Component {
 
     logout = () => {
       localStorage.removeItem('auth');
-      this.setState({loggedIn: false})
     }
 
     render() {
