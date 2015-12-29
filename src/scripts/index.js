@@ -8,13 +8,28 @@ import Callback from './callback';
 
 const history = createHistory();
 
+function requireAuth(nextState, replaceState) {
+  if (!localStorage.getItem('auth'))
+    replaceState({ nextPathname: nextState.location.pathname }, '/login')
+}
+
+function loggedIn(nextState, replaceState) {
+  if (localStorage.getItem('auth'))
+    replaceState({ nextPathname: nextState.location.pathname }, '/loggedIn')
+}
+
+function callback(nextState, replaceState) {
+  if (!window.location.hash)
+    replaceState({ nextPathname: nextState.location.pathname }, '/login')
+}
+
 React.render((
   <Router history={history}>
     <Route path="/" component={App}>
-      <Route path="login" component={Login} />
-      <Route path="loggedIn" component={Home} />
+      <Route path="login" component={Login} onEnter={loggedIn} />
+      <Route path="loggedIn" component={Home} onEnter={requireAuth} />
       <Route path="loggedout" component={Home} />
-      <Route path="callback" component={Callback} history={history} />
+      <Route path="callback" component={Callback} onEnter={callback}/>
       <IndexRoute component={Home}/>
     </Route>
   </Router>
