@@ -5,9 +5,11 @@ export default class Callback extends React.Component {
 
     componentDidMount() {
       this.lock = new Auth0Lock('xCuhPtLp8BEAqB5DCxOviHYPcbpklA8k', 'haridu.auth0.com');
+
+      // store auth info in local storage and redirect
       this.setAuth();
-      this.props.history.pushState(null, `/loggedIn`);
     }
+
     setAuth = () => {
       var authHash = this.lock.parseHash(window.location.hash);
         if (authHash.id_token) {
@@ -22,13 +24,16 @@ export default class Callback extends React.Component {
                     token: authHash.id_token,
                     profile: profile
                   })
-                );
+                ); 
+                // redirect
+                this.props.history.pushState(null, `/loggedIn`);
           });
         }
         if (authHash.error) {
           console.log("Error signing in", authHash);
         }
     }
+
     render() {
       return (
         <div className="container">
